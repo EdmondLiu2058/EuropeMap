@@ -137,7 +137,7 @@ async function drawMap() {
     });
 
 
-    drawCities(citiesData);
+    // drawCities(citiesData);
 
 }
 
