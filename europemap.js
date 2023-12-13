@@ -83,8 +83,8 @@ async function drawMap() {
         .enter()
         .append("path")
         .attr("d", pathGenerator)
-        .attr("fill", "#ccc")
-        .attr("stroke", "#000")
+        .attr("fill", "#fff")//国家颜色
+        .attr("stroke", "#000") //边框线颜色
         .on("mouseover", function (event, d) {
             // Display tooltip with country name
             tooltip.transition()
@@ -106,7 +106,7 @@ async function drawMap() {
 
             // If not clicked, restore opacity to all countries
             if (!d.clicked) {
-                countries.transition().duration(200)
+                countries.transition().duration(100)
                     .style("opacity", 1);
             }
         })
@@ -123,7 +123,7 @@ async function drawMap() {
             d.clicked = true;
 
             // Hide other countries
-            countries.transition().duration(200)
+            countries.transition().duration(100)
                 .style("opacity", c => (c === d ? 1 : 0.5));
         });
 
@@ -131,7 +131,7 @@ async function drawMap() {
     svg.on("click", function (event) {
         if (event.target === this) {
             details.style("opacity", 0);
-            countries.transition().duration(200).style("opacity", 1);
+            countries.transition().duration(100).style("opacity", 1);
             mapData.features.forEach(d => d.clicked = false);  // Reset clicked status
         }
     });
